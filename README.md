@@ -24,6 +24,7 @@ This instantiates an RGB driver (SB_RGBA_DRV) that controls the RGB LED. The RGB
 These parameters set the current levels for each color channel of the RGB LED. Each channel is set to a low current level.
 
 # Step 2 - Creating a PCF File
+It is noticed that the pin assignment in the pcf file given in the repository is different from the pin assignment in datasheet.
 ## Corrected Pin Assignment
 led_red = Pin 39
 
