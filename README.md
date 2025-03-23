@@ -14,3 +14,15 @@ This instantiates a high-frequency oscillator (SB_HFOSC) with a division factor 
 This instantiates an RGB driver (SB_RGBA_DRV) that controls the RGB LED. The RGBLEDEN signal enables the LED driver. The RGB0PWM, RGB1PWM, and RGB2PWM signals control the pulse-width modulation (PWM) for the red, green, and blue channels, respectively. In this case, the blue channel is enabled, while the red and green channels are set to off.
 ## RGB Driver Parameters
 These parameters set the current levels for each color channel of the RGB LED. Each channel is set to a low current level.
+
+# Step 2 - Creating a PCF File
+## Proper Pin Assignment
+led_red = Pin 39
+
+led_green = Pin 40
+
+led_blue = Pin 41
+
+hw_clk = Pin 20
+
+testwire = Pin 17
