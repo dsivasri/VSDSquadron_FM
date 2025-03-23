@@ -1,0 +1,33 @@
+Module Declaration
+The module is named top and has the following ports: 
+
+Outputs:
+led_red: Controls the red LED.
+led_blue: Controls the blue LED.
+led_green: Controls the green LED.
+testwire: A test output wire for debugging purposes.
+Input:
+hw_clk: A hardware clock input, although it is not used in the provided code.
+Internal Components
+Internal Oscillator:
+
+The SB_HFOSC primitive is instantiated to create a high-frequency oscillator. The CLKHF_DIV parameter is set to "0b10", which divides the clock frequency by 4.
+The oscillator is enabled with CLKHFPU and CLKHFEN both set to 1'b1.
+Frequency Counter:
+
+A 28-bit register frequency_counter_i is defined to count the number of clock cycles from the internal oscillator.
+On each positive edge of int_osc, the counter increments by 1.
+Test Wire:
+
+The testwire output is assigned the value of the 6th bit of the frequency counter (frequency_counter_i[5]). This can be used for debugging or testing purposes.
+RGB LED Driver
+The SB_RGBA_DRV primitive is instantiated to control the RGB LED. The parameters are set as follows:
+RGBLEDEN: Enables the RGB LED driver.
+RGB0PWM, RGB1PWM, RGB2PWM: These control the pulse-width modulation (PWM) for the red, green, and blue LEDs, respectively. In this case, the blue LED is set to 1'b1 (fully on), while the red and green LEDs are set to 1'b0 (off).
+CURREN: Enables the current for the RGB driver.
+The actual hardware connections for the RGB LEDs are made to led_red, led_green, and led_blue.
+Current Settings
+The current settings for each color of the RGB LED are defined using defparam:
+RGB0_CURRENT, RGB1_CURRENT, and RGB2_CURRENT are all set to "0b000001", which likely corresponds to a low current setting for the LEDs.
+Summary
+This module is designed to drive an RGB LED with a blue light while keeping the red and green lights off. The internal oscillator provides a clock signal for the frequency counter, and the testwire can be used for debugging purposes. The design is simple and can be expanded or modified for more complex behaviors, such as changing the LED colors based on different conditions or inputs.
