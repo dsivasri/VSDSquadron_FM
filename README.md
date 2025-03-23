@@ -1,4 +1,4 @@
-# Understanding the Verilog code:
+# Step 1 - Understanding the Verilog code:
 ## Module Declaration:
 The top module has three output wires for the RGB LED (red, green, blue) and one input wire for the hardware clock (hw_clk). It also has a testwire for debugging purposes.
 ## Internal Signals:
