@@ -1,6 +1,14 @@
 # Step 1 - Understanding the Verilog code:
 ## Module Declaration:
-The top module has three output wires for the RGB LED (red, green, blue) and one input wire for the hardware clock (hw_clk). It also has a testwire for debugging purposes.
+led_red - Output - Controls red led.
+
+led_green - Output - Controls green led.
+
+led_blue - Output - Controls blue led.
+
+hw_clk - Input - Transfers clock signal.
+
+testwire - Output - Used for Debugging.
 ## Internal Signals:
 int_osc: A wire that will carry the output of the internal oscillator.
 frequency_counter_i: A 28-bit register used to count clock cycles.
