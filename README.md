@@ -1,10 +1,10 @@
 # <ins> Step 1 - Understanding the Verilog code: <ins>
 ## Module Declaration:
-- led_red - Output - Controls red led.
-* led_green - Output - Controls green led.
-+ led_blue - Output - Controls blue led.
-- hw_clk - Input - Transfers clock signal.
-* testwire - Output - Used for Debugging.
+- led_red - Output - Red LED Output
+* led_green - Output - Green LED Output
++ led_blue - Output - Blue LED Otput
+- hw_clk - Input - Hardware Clock Input
+* testwire - Output - Test Signal or Wire
 ## Internal Signals:
 int_osc: A wire that will carry the output of the internal oscillator.
 frequency_counter_i: A 28-bit register used to count clock cycles.
@@ -33,3 +33,4 @@ It is noticed that the pin assignment in the pcf file given in the repository is
 + led_blue = Pin 41
 - hw_clk = Pin 20
 * testwire = Pin 17
+## Pin Mapping:
