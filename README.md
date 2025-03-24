@@ -69,10 +69,14 @@ The primary significance of testwire is its role in debugging and testing the de
   
   ![Green output](https://github.com/user-attachments/assets/97f215ee-ec1d-40be-8c28-971bdeb95f15)
   #### <ins> Code for Glowing Blue LED: </ins>
-  ![blue 1](https://github.com/user-attachments/assets/1e4b340c-e94d-4682-a582-cfc9d0d2bb75)
-  ![blue 2](https://github.com/user-attachments/assets/5742efa6-e41e-43d9-8316-63cab9c2b46d)
+  ![blue 1](https://github.com/user-attachments/assets/1e4b340c-e94d-4682-a582-cfc9d0d2bb75c
   #### <ins> As expected, Blue LED started glowing as below: </ins>
   
   ![Blue output](https://github.com/user-attachments/assets/f358ed8f-064b-4d53-8ff5-148c7d32b106)
 
   When I coded for glowing Red, Blue and Green in RGB LED, I noticed that when I enter 'make clean' and 'make build' commands, all 3 LED (Power LED, Programming LED, RGB LED) in the board was glowing. RGB was glowing according to the previous program which I executed . But when I enter 'sudo make flash' command, only the Power LED was glowing. This is also one of my observation.
+
+## Challenges Faced and Implemented Solutions:
+- The main challenge which I faced was connecting the Board to the Virtual Machine. At last, I solved the problem by reinstalling the Virtual Machine.
+- I found it a little dificult to understand the code and the function of commands like 'make clean','make build' and 'sudo make flash'. I resolved this problem with the help of my parents and a website named 'Blackbox.ai'.
+-  The first time when I was trying to make the blue led glow, I didn't know what are the files needed to include in a folder to execute the program. Then I observed the files which was present in the 'blink_led' folder and included the files which are necessary in a new folder and named it as blue_led. I followed the same steps for glowing red and green led also.
