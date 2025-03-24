@@ -27,10 +27,15 @@ It is noticed that the pin assignment in the pcf file given in the repository is
 + led_green = Pin 41
 - hw_clk = Pin 20
 * testwire = Pin 17
-## Corrected Pin assignment:
+## Corrected Pin Mapping:
 - led_red = Pin 39
 * led_green = Pin 40
 + led_blue = Pin 41
 - hw_clk = Pin 20
 * testwire = Pin 17
-## Pin Mapping:
+## Significance of each connection:
+### - led_red (Pin 39)
+### * led_green (Pin 40)
+### + led_blue (Pin 41)
+### - hw_clk (Pin 20)
+### * testwire (Pin 17)
