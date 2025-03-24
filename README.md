@@ -1,4 +1,4 @@
-# Step 1 - Understanding the Verilog code:
+# <ins> Step 1 - Understanding the Verilog code: <ins>
 ## Module Declaration:
 led_red - Output - Controls red led.
 
@@ -23,7 +23,7 @@ This instantiates an RGB driver (SB_RGBA_DRV) that controls the RGB LED. The RGB
 ## RGB Driver Parameters:
 These parameters set the current levels for each color channel of the RGB LED. Each channel is set to a low current level.
 
-# Step 2 - Creating a PCF File:
+# <ins> Step 2 - Creating a PCF File: </ins>
 It is noticed that the pin assignment in the pcf file given in the repository is different from the pin assignment in datasheet.
 ## Pin assignments mentioned in the given repository:
 
