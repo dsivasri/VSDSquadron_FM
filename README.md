@@ -1,29 +1,24 @@
 # <ins> Step 1 - Understanding the Verilog code: </ins>
 The purpose of the provided Verilog module is to control an RGB LED (<ins>R</ins>ed <ins>G</ins>reen <ins>B</ins>lue - <ins>L</ins>ight <ins>E</ins>mitting <ins>D</ins>iode) using an internal hardware oscillator and a frequency counter.
-## Define RGB LED:
-An RGB LED is a type of LED that can emit light in various colors by combining different intensities of red, green, and blue light. Each RGB LED typically contains three separate diodes—one for each color. By adjusting the brightness of each diode, a wide spectrum of colors can be produced through additive color mixing.
-
-![RGB_LED](https://github.com/user-attachments/assets/5dbc127f-7a20-42b3-a758-b813c9400ca6)
-
 ## Module Declaration:
 - led_red - Output - Red LED Output
 * led_green - Output - Green LED Output
 + led_blue - Output - Blue LED Otput
 - hw_clk - Input - Hardware Clock Input
 * testwire - Output - Test Signal or Wire
-## Internal Logic:
-int_osc: A wire that will carry the output of the internal oscillator.
-frequency_counter_i: A 28-bit register used to count clock cycles.
-## Test Wire Assignment:
-The testwire is assigned the value of the 6th bit of the frequency_counter_i, which can be used for debugging or monitoring the counter's state.
-## Frequency Counter:
-This always block increments the frequency_counter_i on the rising edge of the int_osc signal. This effectively counts the number of clock cycles from the internal oscillator.
 ## Internal Oscillator:
 This instantiates a high-frequency oscillator (SB_HFOSC) with a division factor of 2 (CLKHF_DIV ("0b10")). The oscillator is powered up (CLKHFPU(1'b1)) and enabled (CLKHFEN(1'b1)), producing a clock signal on int_osc.
 ## RGB Driver Instantiation:
 This instantiates an RGB driver (SB_RGBA_DRV) that controls the RGB LED. The RGBLEDEN signal enables the LED driver. The RGB0PWM, RGB1PWM, and RGB2PWM signals control the pulse-width modulation (PWM) for the red, green, and blue channels, respectively. In this case, the blue channel is enabled, while the red and green channels are set to off.
 ## RGB Driver Parameters:
 These parameters set the current levels for each color channel of the RGB LED. Each channel is set to a low current level.
+## Internal Signals:
+int_osc: A wire that will carry the output of the internal oscillator.
+frequency_counter_i: A 28-bit register used to count clock cycles.
+## Frequency Counter:
+This always block increments the frequency_counter_i on the rising edge of the int_osc signal. This effectively counts the number of clock cycles from the internal oscillator.
+## Test Wire Assignment:
+The testwire is assigned the value of the 6th bit of the frequency_counter_i, which can be used for debugging or monitoring the counter's state.
 
 # <ins> Step 2 - Creating a PCF File: </ins>
 It is noticed that the pin assignment in the pcf file given in the repository is different from the pin assignment in datasheet.
@@ -33,7 +28,7 @@ It is noticed that the pin assignment in the pcf file given in the repository is
 + led_green = Pin 41
 - hw_clk = Pin 20
 * testwire = Pin 17
-## Corrected Pin Mapping:
+## Corrected Pin Assignment:
 - led_red = Pin 39
 * led_green = Pin 40
 + led_blue = Pin 41
@@ -54,7 +49,7 @@ The primary significance of testwire is its role in debugging and testing the de
 # <ins> Step 3: Integrating with the VSDSquadron FPGA Mini Board: </ins>
 ## Integration steps:
 #### - First I connected the board to the computer through an USB Cable.
-#### - Then I created 3 folders named red_led, green_led, blue_led for glowing Red, Green, Blue LED respectively. In each of these folders, I included Makefiles, top.v code and .pcf files.
+#### - Then I created 3 folders named red_led, green_led, blue_led for glowing Red, Green, Blue LED respectively. In each of these folders, I included Makefiles, top.v code and .pcf files named as 'Pin_assignment.
 #### - Then I opened terminal and coded as below.
   #### <ins> Code for Glowing Red LED: </ins>
   ![red 1](https://github.com/user-attachments/assets/6e17810d-4594-492a-b783-2320578594b5)
