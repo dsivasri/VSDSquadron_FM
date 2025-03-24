@@ -1,11 +1,17 @@
 # <ins> Step 1 - Understanding the Verilog code: </ins>
+The purpose of the provided Verilog module is to control an RGB LED (<ins>R</ins>ed <ins>G</ins>reen <ins>B</ins>lue - <ins>L</ins>ight <ins>E</ins>mitting <ins>D</ins>iode) using an internal hardware oscillator and a frequency counter.
+## Define RGB LED:
+An RGB LED is a type of LED that can emit light in various colors by combining different intensities of red, green, and blue light. Each RGB LED typically contains three separate diodes—one for each color. By adjusting the brightness of each diode, a wide spectrum of colors can be produced through additive color mixing.
+
+![RGB_LED](https://github.com/user-attachments/assets/5dbc127f-7a20-42b3-a758-b813c9400ca6)
+
 ## Module Declaration:
 - led_red - Output - Red LED Output
 * led_green - Output - Green LED Output
 + led_blue - Output - Blue LED Otput
 - hw_clk - Input - Hardware Clock Input
 * testwire - Output - Test Signal or Wire
-## Internal Signals:
+## Internal Logic:
 int_osc: A wire that will carry the output of the internal oscillator.
 frequency_counter_i: A 28-bit register used to count clock cycles.
 ## Test Wire Assignment:
@@ -68,3 +74,5 @@ The primary significance of testwire is its role in debugging and testing the de
   #### <ins> As expected, Blue LED started glowing as below: </ins>
   
   ![Blue output](https://github.com/user-attachments/assets/f358ed8f-064b-4d53-8ff5-148c7d32b106)
+
+  When I coded for glowing Red, Blue and Green in RGB LED, I noticed that when I enter 'make clean' and 'make build' commands, all 3 LED (Power LED, Programming LED, RGB LED) in the board was glowing. RGB was glowing according to the previous program which I executed . But when I enter 'sudo make flash' command, only the Power LED was glowing. This is also one of my observation.
