@@ -39,26 +39,29 @@ It is noticed that the pin assignment in the pcf file given in the repository is
 
 # <ins> Step 3: Integrating with the VSDSquadron FPGA Mini Board: </ins>
 ## Integration steps:
-#### - First I connected the board to the computer through an USB Cable.
-#### - Then I created 3 folders named red_led, green_led, blue_led for glowing Red, Green, Blue LED respectively. In each of these folders, I included Makefiles, top.v code and .pcf files named as 'Pin_assignments.pcf'.
-#### - Then I opened terminal and coded as below.
-  #### <ins> Code for Glowing Red LED: </ins>
+- First I connected the board to the computer through an USB Cable.
+- Then I created 3 folders named red_led, green_led, blue_led for glowing Red, Green, Blue LED respectively. In each of these folders, I included Makefiles, top.v code and .pcf files named as 'Pin_assignments.pcf'.
+- Then I opened terminal and coded as below.
+  
+ <ins> Code for Glowing Red LED: </ins>
   ![red 1](https://github.com/user-attachments/assets/6e17810d-4594-492a-b783-2320578594b5)
   ![red 2](https://github.com/user-attachments/assets/cd41e617-1238-4011-bb76-d9a33ba12680)
-  #### <ins> As expected, Red LED started glowing as below: </ins>
+ <ins> As expected, Red LED started glowing as below: </ins>
   
   ![Red output](https://github.com/user-attachments/assets/75c73a8d-71ab-4162-9d15-331e8975f59a)
-  #### <ins> Code for Glowing Green LED: </ins>
+
+<ins> Code for Glowing Green LED: </ins>
   ![green 1](https://github.com/user-attachments/assets/fe0f391a-7ca0-4ee1-a25b-dcc4f10c8087)
   ![green 2](https://github.com/user-attachments/assets/67b79cd0-4580-496c-b7d7-d70997914e4f)
-  #### <ins> As expected, Green LED started glowing as below: </ins>
+<ins> As expected, Green LED started glowing as below: </ins>
   
   ![Green output](https://github.com/user-attachments/assets/97f215ee-ec1d-40be-8c28-971bdeb95f15)
-  #### <ins> Code for Glowing Blue LED: </ins>
+
+<ins> Code for Glowing Blue LED: </ins>
   ![blue 1](https://github.com/user-attachments/assets/231ef76b-ea3a-481a-a89d-ddf08c6adb7c)
   ![blue 2](https://github.com/user-attachments/assets/d489ee0c-7282-47f1-b731-89f46a2c9b9e)
 
-  #### <ins> As expected, Blue LED started glowing as below: </ins>
+<ins> As expected, Blue LED started glowing as below: </ins>
   
   ![Blue output](https://github.com/user-attachments/assets/f358ed8f-064b-4d53-8ff5-148c7d32b106)
 ## My Understandings:
