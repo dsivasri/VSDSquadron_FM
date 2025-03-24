@@ -1,14 +1,10 @@
 # <ins> Step 1 - Understanding the Verilog code: <ins>
 ## Module Declaration:
-led_red - Output - Controls red led.
-
-led_green - Output - Controls green led.
-
-led_blue - Output - Controls blue led.
-
-hw_clk - Input - Transfers clock signal.
-
-testwire - Output - Used for Debugging.
+- led_red - Output - Controls red led.
+* led_green - Output - Controls green led.
++ led_blue - Output - Controls blue led.
+- hw_clk - Input - Transfers clock signal.
+* testwire - Output - Used for Debugging.
 ## Internal Signals:
 int_osc: A wire that will carry the output of the internal oscillator.
 frequency_counter_i: A 28-bit register used to count clock cycles.
@@ -26,25 +22,14 @@ These parameters set the current levels for each color channel of the RGB LED. E
 # <ins> Step 2 - Creating a PCF File: </ins>
 It is noticed that the pin assignment in the pcf file given in the repository is different from the pin assignment in datasheet.
 ## Pin assignments mentioned in the given repository:
-
-led_red = Pin 39
-
-led_blue = Pin 40
-
-led_green = Pin 41
-
-hw_clk = Pin 20
-
-testwire = Pin 17
-
-
+- led_red = Pin 39
+* led_blue = Pin 40
++ led_green = Pin 41
+- hw_clk = Pin 20
+* testwire = Pin 17
 ## Corrected Pin assignment:
-led_red = Pin 39
-
-led_green = Pin 40
-
-led_blue = Pin 41
-
-hw_clk = Pin 20
-
-testwire = Pin 17
+- led_red = Pin 39
+* led_green = Pin 40
++ led_blue = Pin 41
+- hw_clk = Pin 20
+* testwire = Pin 1
