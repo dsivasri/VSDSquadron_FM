@@ -1,3 +1,5 @@
+# <ins> **Task 1** </ins>
+
 ## <ins> Step 1 - Understanding the Verilog code: </ins>
 The purpose of the provided Verilog module is to control an RGB LED (<ins>R</ins>ed <ins>G</ins>reen <ins>B</ins>lue - <ins>L</ins>ight <ins>E</ins>mitting <ins>D</ins>iode) using an internal hardware oscillator and a frequency counter.
 ### Module Declaration:
