@@ -6,10 +6,10 @@
 The purpose of the provided Verilog module is to control an RGB LED (<ins>R</ins>ed <ins>G</ins>reen <ins>B</ins>lue - <ins>L</ins>ight <ins>E</ins>mitting <ins>D</ins>iode) using an internal hardware oscillator and a frequency counter.
 ### Module Declaration:
 - led_red - Output - Red LED Output
-* led_green - Output - Green LED Output
-+ led_blue - Output - Blue LED Otput
+- led_green - Output - Green LED Output
+- led_blue - Output - Blue LED Otput
 - hw_clk - Input - Hardware Clock Input
-* testwire - Output - Test Signal or Wire
+- testwire - Output - Test Signal or Wire
 ### Internal Oscillator:
 This instantiates a high-frequency oscillator (SB_HFOSC) with a division factor of 2 (CLKHF_DIV ("0b10")). The oscillator is powered up (CLKHFPU(1'b1)) and enabled (CLKHFEN(1'b1)), producing a clock signal on int_osc.
 ### RGB Driver Instantiation:
@@ -28,16 +28,16 @@ The testwire is assigned the value of the 6th bit of the frequency_counter_i, wh
 It is noticed that the pin assignment in the pcf file given in the repository is different from the pin assignment in datasheet.
 ### Pin assignments mentioned in the given repository:
 - led_red = Pin 39
-* led_blue = Pin 40
-+ led_green = Pin 41
+- led_blue = Pin 40
+- led_green = Pin 41
 - hw_clk = Pin 20
-* testwire = Pin 17
+- testwire = Pin 17
 ### Corrected Pin Assignment:
 - led_red = Pin 39
-* led_green = Pin 40
-+ led_blue = Pin 41
+- led_green = Pin 40
+- led_blue = Pin 41
 - hw_clk = Pin 20
-* testwire = Pin 17
+- testwire = Pin 17
 ### Pin Mapping:
 ![image](https://github.com/user-attachments/assets/f221ac4b-996b-4af2-8d8c-da28a6f13616)
 
@@ -68,9 +68,9 @@ It is noticed that the pin assignment in the pcf file given in the repository is
 <ins> As expected, Blue LED started glowing as below: </ins>
   
   ![Blue output](https://github.com/user-attachments/assets/f358ed8f-064b-4d53-8ff5-148c7d32b106)
-### My Understandings:
+## <ins> My Understandings: </ins>
 While doing this task, I learnt how commands like 'make clean', 'make build' and 'sudo make fash' run. First when we enter 'make clean' command, the previous code which we have executed will erase from the Memory. The 'make build' command will convert the verilog code into series of binaries and creates a netlist. The 'sudo make flash' command flashes the data to the external RAM and executes the program.
-### Challenges Faced and Implemented Solutions:
+## <ins> Challenges Faced and Implemented Solutions: </ins>
 - The main challenge which I faced was connecting the Board to the Virtual Machine. At last, I solved the problem by installing the Virtual box extension and by 
  reinstalling Virtual Box.
 - I found it a little dificult to understand the code and the function of commands like 'make clean','make build' and 'sudo make flash'. I resolved this problem with the help of my parents and a website named 'Blackbox.ai'.
