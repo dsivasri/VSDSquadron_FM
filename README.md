@@ -1,7 +1,3 @@
-<details>
-<summary> TASK - 1 </summary>
-<br>
-  
 ## <ins> Step 1 - Understanding the Verilog code: </ins>
 The purpose of the provided Verilog module is to control an RGB LED (<ins>R</ins>ed <ins>G</ins>reen <ins>B</ins>lue - <ins>L</ins>ight <ins>E</ins>mitting <ins>D</ins>iode) using an internal hardware oscillator and a frequency counter.
 ### Module Declaration:
@@ -75,4 +71,3 @@ While doing this task, I learnt how commands like 'make clean', 'make build' and
  reinstalling Virtual Box.
 - I found it a little dificult to understand the code and the function of commands like 'make clean','make build' and 'sudo make flash'. I resolved this problem with the help of my parents and a website named 'Blackbox.ai'.
 -  The first time when I was trying to make the blue led glow, I didn't know what are the files needed to include in a folder to execute the program. Then I observed the files which was present in the 'blink_led' folder and included the files which are necessary in a new folder and named it as blue_led. I followed the same steps for glowing red and green led also.
-</details>
