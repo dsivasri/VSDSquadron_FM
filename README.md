@@ -1,5 +1,5 @@
 <details>
-<summary> <h1> Task - 1 Documentation </h1> </summary>
+<summary> <h1> <ins> Task - 1 Documentation </ins> </h1> </summary>
 <br>
   
 ## <ins> Step 1 - Understanding the Verilog code: </ins>
