@@ -83,6 +83,8 @@ While doing this task, I learnt how commands like 'make clean', 'make build' and
 
 ## <ins> Block Diagram: </ins>
 ![Block Diagram](https://github.com/user-attachments/assets/59ff96a4-ae40-4e7a-824f-3de0c6cdba20)
+## <ins> Circuit Diagram: </ins>
+![Circuit diagram](https://github.com/user-attachments/assets/7fb25ab7-9a5d-4bd4-9971-81ab403579f9)
 ## <ins> Explaination of uart_trx code: </ins>
 This code describes a simple UART (Universal Asynchronous Receiver-Transmitter) transmitter module in Verilog, which is designed to send 8-bit data with no parity and one stop bit (8N1 format).
 ### Module Declaration:
@@ -145,3 +147,7 @@ This instantiates a high-frequency oscillator (SB_HFOSC) that generates a clock 
 - The PWM signals for each color (red, green, blue) are derived from combinations of bits from frequency_counter_i.
 ### RGB Driver Current Configuration:
 These lines set the current levels for each of the RGB channels to a specific value, ensuring that the LEDs operate within safe limits.
+## <ins> Testing Results: </ins>
+![1](https://github.com/user-attachments/assets/78e2cd39-2c94-46bd-91a3-d5ec7290249e)
+To exit, Ctrl+A; Ctrl+Q.
+![2](https://github.com/user-attachments/assets/36df6ac5-2608-4838-acce-5a6737159a1a)
