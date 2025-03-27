@@ -148,6 +148,12 @@ This instantiates a high-frequency oscillator (SB_HFOSC) that generates a clock 
 ### RGB Driver Current Configuration:
 These lines set the current levels for each of the RGB channels to a specific value, ensuring that the LEDs operate within safe limits.
 ## <ins> Testing Results: </ins>
+### - Photos
 ![1](https://github.com/user-attachments/assets/78e2cd39-2c94-46bd-91a3-d5ec7290249e)
 To exit, Ctrl+A; Ctrl+Q.
 ![2](https://github.com/user-attachments/assets/36df6ac5-2608-4838-acce-5a6737159a1a)
+### - Video
+
+
+https://github.com/user-attachments/assets/61b2139f-b707-4d3c-a66a-d5980d76d752
+
