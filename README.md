@@ -76,3 +76,11 @@ While doing this task, I learnt how commands like 'make clean', 'make build' and
 - I found it a little dificult to understand the code and the function of commands like 'make clean','make build' and 'sudo make flash'. I resolved this problem with the help of my parents and a website named 'Blackbox.ai'.
 -  The first time when I was trying to make the blue led glow, I didn't know what are the files needed to include in a folder to execute the program. Then I observed the files which was present in the 'blink_led' folder and included the files which are necessary in a new folder and named it as blue_led. I followed the same steps for glowing red and green led also.
 </details>
+
+<details>
+<summary> <h1> <ins> Task - 2 Documentation </ins> </h1> </summary>
+<br>
+
+## <ins> Block Diagram: </ins>
+![Block Diagram](https://github.com/user-attachments/assets/59ff96a4-ae40-4e7a-824f-3de0c6cdba20)
+## <ins> Circuit Diagram: </ins>
