@@ -83,4 +83,65 @@ While doing this task, I learnt how commands like 'make clean', 'make build' and
 
 ## <ins> Block Diagram: </ins>
 ![Block Diagram](https://github.com/user-attachments/assets/59ff96a4-ae40-4e7a-824f-3de0c6cdba20)
-## <ins> Circuit Diagram: </ins>
+## <ins> Explaination of uart_trx code: </ins>
+This code describes a simple UART (Universal Asynchronous Receiver-Transmitter) transmitter module in Verilog, which is designed to send 8-bit data with no parity and one stop bit (8N1 format).
+### Module Declaration:
+Module Name: uart_tx_8n1 indicates that this is a UART transmitter module.
+Inputs:
+- clk: The clock signal used to synchronize the transmission.
+- txbyte: The 8-bit data byte to be transmitted.
+- senddata: A signal that triggers the transmission when asserted (set to 1).
+Outputs:
+- txdone: A signal that indicates when the transmission of the byte is complete.
+- tx: The actual transmission line where the data is sent.
+### Parameters:
+These parameters define the different states of the state machine used in the UART transmission process:
+- STATE_IDLE: The idle state where the transmitter is not sending data.
+- STATE_STARTTX: The state where the start bit is being sent.
+- STATE_TXING: The state where the data bits are being sent.
+- STATE_TXDONE: The state indicating that the transmission is complete.
+### State Variables:
+- state: Holds the current state of the state machine.
+- buf_tx: A buffer to hold the byte to be transmitted.
+- bits_sent: A counter to keep track of how many bits have been sent.
+- txbit: The current value of the transmission line (starts high).
+- txdone: Indicates whether the transmission is complete.
+### Wiring:
+This line connects the txbit register to the tx output wire, so whatever value txbit holds will be sent out on the tx line.
+### Always Block:
+This block is triggered on the rising edge of the clock signal, meaning that all operations inside this block will occur synchronously with the clock.
+### State Machine Logic:
+- #### Start Sending:
+If senddata is asserted and the state is STATE_IDLE, the module transitions to STATE_STARTTX, loads the byte to be transmitted into buf_tx, and resets txdone.
+- #### Idle State:
+In the idle state, the txbit is set high (indicating the line is idle).
+- #### Start Bit Transmission:
+When in the STATE_STARTTX, the txbit is set low to indicate the start of transmission, and the state transitions to STATE_TXING.
+- #### Data Bit Transmission:
+In the STATE_TXING, the least significant bit of buf_tx is sent out on tx, the buffer is shifted right to prepare the next bit, and the bits_sent counter is incremented.
+- #### Stop Bit Transmission:
+After sending 8 data bits, the stop bit (high) is transmitted, signaling the end of the data frame.
+## <ins> Explaination of top.v code: </ins>
+The provided Verilog code describes a hardware module named top, which integrates several functionalities including UART transmission, RGB LED control, and clock generation. Below is a detailed explanation of the code:
+### Module Declaration:
+The top module has four output wires for controlling RGB LEDs and one output for UART transmission. It also has one input for the hardware clock.
+### Internal Signals:
+- int_osc is a wire that will receive the output from an internal oscillator.
+- frequency_counter_i is a 28-bit register used to keep track of the frequency for LED control and UART transmission.
+### Clock Generation for 9600 Hz:
+- clk_9600 is a register that will toggle to create a 9600 Hz clock signal.
+- cntr_9600 is a counter that increments with each clock cycle to help generate the 9600 Hz clock.
+- period_9600 is a constant that defines how many cycles of the internal oscillator are needed to create a 9600 Hz clock.
+### UART Transmission:
+This line instantiates a UART transmission module named DanUART. It uses the 9600 Hz clock (clk_9600), sends the byte "D", and triggers transmission based on the 25th bit of frequency_counter_i.
+### Internal Oscillator:
+This instantiates a high-frequency oscillator (SB_HFOSC) that generates a clock signal (int_osc). The parameters configure the oscillator to be enabled and powered.
+### Frequency Counter and Clock Generation Logic:
+- This always block is triggered on the rising edge of the internal oscillator clock (int_osc).
+- It increments the frequency_counter_i and the cntr_9600.
+- When cntr_9600 reaches the defined period_9600, it toggles the clk_9600 signal and resets the counter.
+### RGB LED Driver:
+- This instantiates an RGB LED driver (SB_RGBA_DRV) that controls the color of the RGB LEDs based on the bits of frequency_counter_i.
+- The PWM signals for each color (red, green, blue) are derived from combinations of bits from frequency_counter_i.
+### RGB Driver Current Configuration:
+These lines set the current levels for each of the RGB channels to a specific value, ensuring that the LEDs operate within safe limits.
