@@ -41,7 +41,7 @@ It is noticed that the pin assignment in the pcf file given in the repository is
 ### Pin Mapping:
 ![image](https://github.com/user-attachments/assets/f221ac4b-996b-4af2-8d8c-da28a6f13616)
 
-## <ins> Step 3: Integrating with the VSDSquadron FPGA Mini Board: </ins>
+## <ins> Step 3 - Integrating with the VSDSquadron FPGA Mini Board: </ins>
 ### Integration steps:
 - First I connected the board to the computer through an USB Cable.
 - Then I created 3 folders named red_led, green_led, blue_led for glowing Red, Green, Blue LED respectively. In each of these folders, I included Makefiles, top.v code and .pcf files named as 'Pin_assignments.pcf'.
