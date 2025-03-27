@@ -153,7 +153,5 @@ These lines set the current levels for each of the RGB channels to a specific va
 To exit, Ctrl+A; Ctrl+Q.
 ![2](https://github.com/user-attachments/assets/36df6ac5-2608-4838-acce-5a6737159a1a)
 ### - Video
-
-
 https://github.com/user-attachments/assets/61b2139f-b707-4d3c-a66a-d5980d76d752
-
+</details>
