@@ -2,7 +2,10 @@
 <summary> <h1> <ins> Task - 1 Documentation </ins> </h1> </summary>
 <br>
   
-## <ins> Step 1 - Understanding the Verilog code: </ins>
+<details>
+<summary> <h2> <ins> Step 1 - Understanding the Verilog code: </ins> </h2> </summary>
+<br>
+  
 The purpose of the provided Verilog module is to control an RGB LED (<ins>R</ins>ed <ins>G</ins>reen <ins>B</ins>lue - <ins>L</ins>ight <ins>E</ins>mitting <ins>D</ins>iode) using an internal hardware oscillator and a frequency counter.
 ### Module Declaration:
 - led_red - Output - Red LED Output
@@ -23,8 +26,12 @@ frequency_counter_i: A 28-bit register used to count clock cycles.
 This always block increments the frequency_counter_i on the rising edge of the int_osc signal. This effectively counts the number of clock cycles from the internal oscillator.
 ### Test Wire Assignment:
 The testwire is assigned the value of the 6th bit of the frequency_counter_i, which can be used for debugging or monitoring the counter's state.
-
-## <ins> Step 2 - Creating a PCF File: </ins>
+</details>
+  
+<details>
+<summary> <h2> <ins> Step 2 - Creating a PCF File: </ins> </h2> </summary>
+<br>
+  
 It is noticed that the pin assignment in the pcf file given in the repository is different from the pin assignment in datasheet.
 ### Pin assignments mentioned in the given repository:
 - led_red = Pin 39
@@ -40,52 +47,66 @@ It is noticed that the pin assignment in the pcf file given in the repository is
 - testwire = Pin 17
 ### Pin Mapping:
 ![image](https://github.com/user-attachments/assets/f221ac4b-996b-4af2-8d8c-da28a6f13616)
+</details>
 
-## <ins> Step 3 - Integrating with the VSDSquadron FPGA Mini Board: </ins>
-### Integration steps:
+<details>
+<summary> <h2> <ins> Step 3 - Integrating with the VSDSquadron FPGA Mini Board: </ins> </h2> </summary>
+<br>
+  
 - First I connected the board to the computer through an USB Cable.
 - Then I created 3 folders named red_led, green_led, blue_led for glowing Red, Green, Blue LED respectively. In each of these folders, I included Makefiles, top.v code and .pcf files named as 'Pin_assignments.pcf'.
 - Then I opened terminal and coded as below.
   
- <ins> Code for Glowing Red LED: </ins>
+ ### <ins> Code for Glowing Red LED: </ins>
   ![red 1](https://github.com/user-attachments/assets/6e17810d-4594-492a-b783-2320578594b5)
   ![red 2](https://github.com/user-attachments/assets/cd41e617-1238-4011-bb76-d9a33ba12680)
  <ins> As expected, Red LED started glowing as below: </ins>
   
   ![Red output](https://github.com/user-attachments/assets/75c73a8d-71ab-4162-9d15-331e8975f59a)
 
-<ins> Code for Glowing Green LED: </ins>
+### <ins> Code for Glowing Green LED: </ins>
   ![green 1](https://github.com/user-attachments/assets/fe0f391a-7ca0-4ee1-a25b-dcc4f10c8087)
   ![green 2](https://github.com/user-attachments/assets/67b79cd0-4580-496c-b7d7-d70997914e4f)
 <ins> As expected, Green LED started glowing as below: </ins>
   
   ![Green output](https://github.com/user-attachments/assets/97f215ee-ec1d-40be-8c28-971bdeb95f15)
 
-<ins> Code for Glowing Blue LED: </ins>
+### <ins> Code for Glowing Blue LED: </ins>
   ![blue 1](https://github.com/user-attachments/assets/231ef76b-ea3a-481a-a89d-ddf08c6adb7c)
   ![blue 2](https://github.com/user-attachments/assets/d489ee0c-7282-47f1-b731-89f46a2c9b9e)
 
 <ins> As expected, Blue LED started glowing as below: </ins>
   
   ![Blue output](https://github.com/user-attachments/assets/f358ed8f-064b-4d53-8ff5-148c7d32b106)
-## <ins> My Understandings: </ins>
+</details>
+
+<details>
+<summary> <h2> <ins> My Understandings: </ins> </h2> </summary>
+<br>
+  
 While doing this task, I learnt how commands like 'make clean', 'make build' and 'sudo make fash' run. First when we enter 'make clean' command, the previous code which we have executed will erase from the Memory. The 'make build' command will convert the verilog code into series of binaries and creates a netlist. The 'sudo make flash' command flashes the data to the external RAM and executes the program.
-## <ins> Challenges Faced and Implemented Solutions: </ins>
+</details>
+
+<details>
+<summary> <h2> <ins> Challenges Faced and Implemented Solutions: </ins> </h2> </summary>
+<br>
+  
 - The main challenge which I faced was connecting the Board to the Virtual Machine. At last, I solved the problem by installing the Virtual box extension and by 
  reinstalling Virtual Box.
 - I found it a little dificult to understand the code and the function of commands like 'make clean','make build' and 'sudo make flash'. I resolved this problem with the help of my parents and a website named 'Blackbox.ai'.
 -  The first time when I was trying to make the blue led glow, I didn't know what are the files needed to include in a folder to execute the program. Then I observed the files which was present in the 'blink_led' folder and included the files which are necessary in a new folder and named it as blue_led. I followed the same steps for glowing red and green led also.
 </details>
+</details>
 
 <details>
 <summary> <h1> <ins> Task - 2 Documentation </ins> </h1> </summary>
 <br>
-
-## <ins> Block Diagram: </ins>
-![Block Diagram](https://github.com/user-attachments/assets/59ff96a4-ae40-4e7a-824f-3de0c6cdba20)
-## <ins> Circuit Diagram: </ins>
-![Circuit diagram](https://github.com/user-attachments/assets/7fb25ab7-9a5d-4bd4-9971-81ab403579f9)
-## <ins> Explaination of uart_trx code: </ins>
+  
+<details>
+<summary> <h2> <ins> Study the Existing Code: </ins> </h2> </summary>
+<br>
+  
+## Explaination of uart_trx code:
 This code describes a simple UART (Universal Asynchronous Receiver-Transmitter) transmitter module in Verilog, which is designed to send 8-bit data with no parity and one stop bit (8N1 format).
 ### Module Declaration:
 Module Name: uart_tx_8n1 indicates that this is a UART transmitter module.
@@ -123,7 +144,7 @@ When in the STATE_STARTTX, the txbit is set low to indicate the start of transmi
 In the STATE_TXING, the least significant bit of buf_tx is sent out on tx, the buffer is shifted right to prepare the next bit, and the bits_sent counter is incremented.
 - #### Stop Bit Transmission:
 After sending 8 data bits, the stop bit (high) is transmitted, signaling the end of the data frame.
-## <ins> Explaination of top.v code: </ins>
+## Explaination of top.v code:
 The provided Verilog code describes a hardware module named top, which integrates several functionalities including UART transmission, RGB LED control, and clock generation. Below is a detailed explanation of the code:
 ### Module Declaration:
 The top module has four output wires for controlling RGB LEDs and one output for UART transmission. It also has one input for the hardware clock.
@@ -147,9 +168,25 @@ This instantiates a high-frequency oscillator (SB_HFOSC) that generates a clock 
 - The PWM signals for each color (red, green, blue) are derived from combinations of bits from frequency_counter_i.
 ### RGB Driver Current Configuration:
 These lines set the current levels for each of the RGB channels to a specific value, ensuring that the LEDs operate within safe limits.
-## <ins> Testing Results: </ins>
-### - Photos
+</details>
+
+<details>
+<summary> <h2> <ins> Design Documentation: </ins> </h2> </summary>
+<br>
+  
+### Block Diagram:
+![Block Diagram](https://github.com/user-attachments/assets/59ff96a4-ae40-4e7a-824f-3de0c6cdba20)
+### Circuit Diagram:
+![Circuit diagram](https://github.com/user-attachments/assets/7fb25ab7-9a5d-4bd4-9971-81ab403579f9)
+</details>
+
+<details>
+<summary> <h2> <ins> Testing and Verification: </ins> </h2> </summary>
+<br>
+  
+### - Photo
 ![Output](https://github.com/user-attachments/assets/cf125dfd-0a91-478c-936e-c45fe26d0d63)
 ### - Video
 https://github.com/user-attachments/assets/b0973070-cec0-4b05-a292-ee91c37f0d13
+</details>
 </details>
