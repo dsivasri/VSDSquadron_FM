@@ -204,3 +204,14 @@ These lines set the current levels for each of the RGB channels to a specific va
 https://github.com/user-attachments/assets/b0973070-cec0-4b05-a292-ee91c37f0d13
 </details>
 </details>
+
+<details>
+<summary> <h1> <ins> Task - 3 Documentation </ins> </h1> </summary>
+<br>
+
+<details>
+<summary> <h2> <ins> Objective: </ins> </h2> </summary>
+<br>
+
+To develop a UART transmitter module capable of sending serial data from the FPGA to an external device.
+</details>
