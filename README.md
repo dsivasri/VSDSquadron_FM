@@ -1,6 +1,13 @@
 <details>
 <summary> <h1> <ins> Task - 1 Documentation </ins> </h1> </summary>
 <br>
+
+<details>
+<summary> <h2> <ins> Objective: </ins> </h2> </summary>
+<br>
+
+To understand and document the provided Verilog code, create the necessary PCF file, and integrate the design with the VSDSquadron FPGA Mini board using the provided datasheet.
+</details>
   
 <details>
 <summary> <h2> <ins> Step 1 - Understanding the Verilog code: </ins> </h2> </summary>
@@ -101,6 +108,13 @@ While doing this task, I learnt how commands like 'make clean', 'make build' and
 <details>
 <summary> <h1> <ins> Task - 2 Documentation </ins> </h1> </summary>
 <br>
+
+<details>
+<summary> <h2> <ins> Objective: </ins> </h2> </summary>
+<br>
+
+Implement a UART loopback mechanism where transmitted data is immediately received back, facilitating testing of UART functionality.
+</details>
   
 <details>
 <summary> <h2> <ins> Study the Existing Code: </ins> </h2> </summary>
