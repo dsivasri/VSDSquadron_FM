@@ -223,7 +223,12 @@ To develop a UART transmitter module capable of sending serial data from the FPG
 ## Explaination of top.v code:
 This code is a Verilog module for a digital design that includes a UART transmitter and an RGB LED driver.
 ### Module Declaration:
-The top module has five ports: three outputs for controlling an RGB LED (led_red, led_blue, led_green), one output for UART transmission (uarttx), and one input for the hardware clock (hw_clk).
+The top module has the following ports:
+Outputs:
+- led_red, led_blue, led_green: These are the outputs for the RGB LED.
+- uarttx: This is the UART transmission pin.
+Input:
+- hw_clk: This is the hardware clock input.
 ### Internal Signals:
 - int_osc: A wire that will be used to connect to an internal oscillator.
 - frequency_counter_i: A 28-bit register used to count clock cycles for generating different frequencies.
