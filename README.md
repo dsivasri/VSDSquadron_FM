@@ -201,7 +201,11 @@ These lines set the current levels for each of the RGB channels to a specific va
   
 - Create a folder named "uart_loopback" in the Virtual Machine under "VSDSquadron_FM".
 - Add the files in the "uart_loopback" folder from [here](https://github.com/dsivasri/VSDSquadron_FPGA_Mini/tree/main/Task%20-%202).
-- Open the terminal and execute commands like:
+- Open the terminal.
+- Type "cd" to exit from Desktop.
+- Type "cd VSDSquadron_FM" to enter the "VSDSquadron_FM" folder.
+- Type "cd uart_loopback" to enter the "uart_loopback" folder and access the files.
+- Execute the commands:
    * make clean
    * make build
    * sudo make flash
@@ -210,7 +214,21 @@ These lines set the current levels for each of the RGB channels to a specific va
 <details>
 <summary> <h2> <ins> Step 4 - Testing and Verification: </ins> </h2> </summary>
 <br>
-  
+
+- Install and open Docklight.
+- After installation,
+  * Select "Start with a blank project / blank script"
+  * Go to "Tools" and select "Project Settings"
+  * Then a dialog box appears. Set as per the below image (Except for the port):
+    ![Implementation 1](https://github.com/user-attachments/assets/c64e070f-75a0-4632-9ce4-5cae1d34ca54)
+- Then double-click on the last empty line in send sequences.
+- A dialog box appears.
+  * Enter a name.
+  * Select the preffered mode using "Edit Mode".
+  * Type the message to be transmitted in the box below "Edit mode".
+  * Click "Ok".
+- Click the arrow which is next to name.
+- The transmitted data will be recieved back. 
 ### - Photo
 ![Output](https://github.com/user-attachments/assets/cf125dfd-0a91-478c-936e-c45fe26d0d63)
 ### - Video
@@ -230,7 +248,7 @@ To develop a UART transmitter module capable of sending serial data from the FPG
 </details>
 
 <details>
-<summary> <h2> <ins> Study the Existing Code: </ins> </h2> </summary>
+<summary> <h2> <ins> Step 1 - Study the Existing Code: </ins> </h2> </summary>
 <br>
   
 ## Explaination of top.v code:
@@ -299,7 +317,7 @@ After sending 8 data bits, the stop bit (high) is transmitted, signaling the end
 </details>
 
 <details>
-<summary> <h2> <ins> Design Documentation: </ins> </h2> </summary>
+<summary> <h2> <ins> Step 2 - Design Documentation: </ins> </h2> </summary>
 <br>
 
 ### Block Diagram:
@@ -307,3 +325,37 @@ After sending 8 data bits, the stop bit (high) is transmitted, signaling the end
 ### Circuit Diagram:
 ![Circuit Diagram](https://github.com/user-attachments/assets/0f4680f9-4d9b-4ff3-a759-0d8b4482c4ff)
 </details>
+
+<details>
+<summary> <h2> <ins> Step 3 - Implementation: </ins> </h2> </summary>
+</summary>
+<br>
+  
+- Create a folder named "uart_transmitter" in the Virtual Machine under "VSDSquadron_FM".
+- Add the files in the "uart_transmitter" folder from [here](https://github.com/dsivasri/VSDSquadron_FPGA_Mini/tree/main/Task%20-%203).
+- Open the terminal.
+- Type "cd" to exit from Desktop.
+- Type "cd VSDSquadron_FM" to enter the "VSDSquadron_FM" folder.
+- Type "cd uart_transmitter" to enter the "uart_transmitter" folder and access the files.
+- Execute the commands:
+   * make clean
+   * make build
+   * sudo make flash
+  - Now we can notice that the RGB LED is switching Red, Blue and Green.
+</details>
+
+<details>
+<summary> <h2> <ins> Step 4 - Testing and Verification: </ins> </h2> </summary>
+</summary>
+<br>
+
+- Install and open PuTTY.
+- PuTTY Configuration dialog box appears.
+- Set as per the below image (Except for Port):
+  ![Implementation 2](https://github.com/user-attachments/assets/1e088eab-cc1c-4ae5-993d-638e013f5aae)
+- Cilck on "Open"
+- Now a hundereds of D's appear on the screen.
+
+### Photo:
+![Output](https://github.com/user-attachments/assets/b1c93a7d-7b70-4dd3-90b3-7abb74c2e5d6)
+### Video:
