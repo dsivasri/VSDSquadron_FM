@@ -117,7 +117,7 @@ Implement a UART loopback mechanism where transmitted data is immediately receiv
 </details>
   
 <details>
-<summary> <h2> <ins> Study the Existing Code: </ins> </h2> </summary>
+<summary> <h2> <ins> Step 1 - Study the Existing Code: </ins> </h2> </summary>
 <br>
   
 ## Explaination of uart_trx code:
@@ -185,7 +185,7 @@ These lines set the current levels for each of the RGB channels to a specific va
 </details>
 
 <details>
-<summary> <h2> <ins> Design Documentation: </ins> </h2> </summary>
+<summary> <h2> <ins> Step 2 - Design Documentation: </ins> </h2> </summary>
 <br>
   
 ### Block Diagram:
@@ -195,7 +195,20 @@ These lines set the current levels for each of the RGB channels to a specific va
 </details>
 
 <details>
-<summary> <h2> <ins> Testing and Verification: </ins> </h2> </summary>
+<summary> <h2> <ins> Step 3 - Implementation: </ins> </h2> </summary>
+</summary>
+<br>
+  
+- Create a folder named "uart_loopback" in the Virtual Machine under "VSDSquadron_FM".
+- Add the files in the "uart_loopback" folder from [here](https://github.com/dsivasri/VSDSquadron_FPGA_Mini/tree/main/Task%20-%202).
+- Open the terminal and execute commands like:
+   * make clean
+   * make build
+   * sudo make flash
+</details>
+
+<details>
+<summary> <h2> <ins> Step 4 - Testing and Verification: </ins> </h2> </summary>
 <br>
   
 ### - Photo
