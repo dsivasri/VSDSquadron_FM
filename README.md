@@ -352,10 +352,15 @@ After sending 8 data bits, the stop bit (high) is transmitted, signaling the end
 - Install and open PuTTY.
 - PuTTY Configuration dialog box appears.
 - Set as per the below image (Except for Port):
+  
   ![Implementation 2](https://github.com/user-attachments/assets/1e088eab-cc1c-4ae5-993d-638e013f5aae)
 - Cilck on "Open"
 - Now a hundereds of D's appear on the screen.
 
 ### Photo:
+
 ![Output](https://github.com/user-attachments/assets/b1c93a7d-7b70-4dd3-90b3-7abb74c2e5d6)
 ### Video:
+
+https://github.com/user-attachments/assets/c647eddf-5956-4e2a-be8b-6993e56e213e
+
