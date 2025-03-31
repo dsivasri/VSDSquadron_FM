@@ -284,3 +284,13 @@ In the STATE_TXING, the least significant bit of buf_tx is sent out on tx, the b
 - #### Stop Bit Transmission:
 After sending 8 data bits, the stop bit (high) is transmitted, signaling the end of the data frame.
 </details>
+
+<details>
+<summary> <h2> <ins> Design Documentation: </ins> </h2> </summary>
+<br>
+  
+### Block Diagram:
+![Block Diagram](https://github.com/user-attachments/assets/56588d00-9448-4460-8e89-c5ebeb5eed6b)
+### Circuit Diagram:
+![Circuit Diagram](https://github.com/user-attachments/assets/0f4680f9-4d9b-4ff3-a759-0d8b4482c4ff)
+</details>
