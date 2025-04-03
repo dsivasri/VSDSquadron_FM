@@ -454,3 +454,13 @@ The internal oscillator is instantiated using the SB_HFOSC primitive:
 ## Summary
 This module effectively combines UART communication and RGB LED control, allowing for the transmission of data over UART while simultaneously controlling the color of the RGB LEDs based on the received data. The design is suitable for applications where visual feedback is needed in response to serial data input.
 </details>
+
+<details>
+<summary> <h2> <ins> Step 2 - Design Documentation: </ins> </h2> </summary>
+<br>
+
+### Block Diagram:
+![Block Diagram](https://github.com/user-attachments/assets/c34f4531-914e-4f2e-bfc2-3b67da4b5bb3)
+### Circuit Diagram:
+![Circuit Diagram](https://github.com/user-attachments/assets/dd913cc4-9f8a-464b-a3c8-43f09d3f37ba)
+</details>
