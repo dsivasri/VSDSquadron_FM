@@ -120,7 +120,7 @@ Implement a UART loopback mechanism where transmitted data is immediately receiv
 <summary> <h2> <ins> Step 1 - Study the Existing Code: </ins> </h2> </summary>
 <br>
   
-## Explaination of uart_trx code:
+## Explaination of uart_trx.v code:
 This code describes a simple UART (Universal Asynchronous Receiver-Transmitter) transmitter module in Verilog, which is designed to send 8-bit data with no parity and one stop bit (8N1 format).
 ### Module Declaration:
 Module Name: uart_tx_8n1 indicates that this is a UART transmitter module.
@@ -276,7 +276,8 @@ This always block is triggered on the rising edge of the internal oscillator clo
 ### RGB LED Driver:
 - This section instantiates an RGB LED driver (SB_RGBA_DRV) that controls the color of the LED based on the PWM signals generated from the frequency_counter_i. The PWM signals are derived from specific bits of the counter, allowing for different colors to be displayed on the RGB LED.
 - The CURREN signal enables the current for the RGB driver, and the defparam statements set the current levels for each color channel.
-## Explaination of uart_trx code:
+
+## Explaination of uart_trx.v code:
 This code describes a simple UART (Universal Asynchronous Receiver-Transmitter) transmitter module in Verilog, which is designed to send 8-bit data with no parity and one stop bit (8N1 format).
 ### Module Declaration:
 Module Name: uart_tx_8n1 indicates that this is a UART transmitter module.
@@ -363,4 +364,93 @@ After sending 8 data bits, the stop bit (high) is transmitted, signaling the end
 ### Video:
 
 https://github.com/user-attachments/assets/c647eddf-5956-4e2a-be8b-6993e56e213e
+</details>
+</details>
 
+<details>
+<summary> <h1> <ins> Task - 4 Documentation </ins> </h1> </summary>
+<br>
+
+<details>
+<summary> <h2> <ins> Objective: </ins> </h2> </summary>
+<br>
+
+Implement a UART transmitter that sends data based on sensor inputs, enabling the FPGA to communicate real-time sensor data to an external device.
+</details>
+  
+<details>
+<summary> <h2> <ins> Step 1 - Study the Existing Code: </ins> </h2> </summary>
+<br>
+
+## Explaination of uart_trx.v code:
+This code describes a simple UART (Universal Asynchronous Receiver-Transmitter) transmitter module in Verilog, which is designed to send 8-bit data with no parity and one stop bit (8N1 format).
+### Module Declaration:
+Module Name: uart_tx_8n1 indicates that this is a UART transmitter module.
+Inputs:
+- clk: The clock signal used to synchronize the transmission.
+- txbyte: The 8-bit data byte to be transmitted.
+- senddata: A signal that triggers the transmission when asserted (set to 1).
+Outputs:
+- txdone: A signal that indicates when the transmission of the byte is complete.
+- tx: The actual transmission line where the data is sent.
+### Parameters:
+These parameters define the different states of the state machine used in the UART transmission process:
+- STATE_IDLE: The idle state where the transmitter is not sending data.
+- STATE_STARTTX: The state where the start bit is being sent.
+- STATE_TXING: The state where the data bits are being sent.
+- STATE_TXDONE: The state indicating that the transmission is complete.
+### State Variables:
+- state: Holds the current state of the state machine.
+- buf_tx: A buffer to hold the byte to be transmitted.
+- bits_sent: A counter to keep track of how many bits have been sent.
+- txbit: The current value of the transmission line (starts high).
+- txdone: Indicates whether the transmission is complete.
+### Wiring:
+This line connects the txbit register to the tx output wire, so whatever value txbit holds will be sent out on the tx line.
+### Always Block:
+This block is triggered on the rising edge of the clock signal, meaning that all operations inside this block will occur synchronously with the clock.
+### State Machine Logic:
+- #### Start Sending:
+If senddata is asserted and the state is STATE_IDLE, the module transitions to STATE_STARTTX, loads the byte to be transmitted into buf_tx, and resets txdone.
+- #### Idle State:
+In the idle state, the txbit is set high (indicating the line is idle).
+- #### Start Bit Transmission:
+When in the STATE_STARTTX, the txbit is set low to indicate the start of transmission, and the state transitions to STATE_TXING.
+- #### Data Bit Transmission:
+In the STATE_TXING, the least significant bit of buf_tx is sent out on tx, the buffer is shifted right to prepare the next bit, and the bits_sent counter is incremented.
+- #### Stop Bit Transmission:
+After sending 8 data bits, the stop bit (high) is transmitted, signaling the end of the data frame.
+
+## Explaination of top.v code:
+## Module Declaration
+The top module has the following ports:
+Outputs:
+- led_red, led_blue, led_green: Outputs for controlling RGB LEDs.
+- uarttx: UART transmission pin.
+Inputs:
+- uartrx: UART reception pin.
+- hw_clk: Hardware clock input.
+## Internal Signals
+- int_osc: Internal oscillator signal.
+- frequency_counter_i: A 28-bit register used to count clock cycles.
+- clk_9600: A register to generate a 9600 Hz clock signal.
+- cntr_9600: A 32-bit counter for generating the 9600 Hz clock.
+## Clock Generation
+The code generates a 9600 Hz clock from a higher frequency (12 MHz) using a counter:
+- The period_9600 parameter is set to 625, which corresponds to the number of clock cycles needed to achieve a 9600 Hz signal.
+- The always block increments frequency_counter_i and cntr_9600 on the rising edge of int_osc. When cntr_9600 reaches period_9600, it toggles clk_9600 and resets cntr_9600.
+## UART Transmission
+The UART transmission is handled by instantiating a uart_tx_8n1 module:
+- The txbyte is set to "D", which means the character 'D' will be transmitted.
+- The senddata signal is driven by the 25th bit of frequency_counter_i, which can be used to control when the data is sent.
+## RGB LED Control
+The RGB LED control is managed by the SB_RGBA_DRV primitive:
+- The RGB driver is enabled with RGBLEDEN.
+- The PWM signals for each color (red, green, blue) are driven by the uartrx signal, which means the LED colors will respond to the UART receive data.
+- The current for each LED is set to a low value (0b000001), which can be adjusted based on the desired brightness.
+## Internal Oscillator
+The internal oscillator is instantiated using the SB_HFOSC primitive:
+- It is configured to run with a division factor of 2, which means it will output a clock signal at half the frequency of the internal oscillator.
+## Summary
+This module effectively combines UART communication and RGB LED control, allowing for the transmission of data over UART while simultaneously controlling the color of the RGB LEDs based on the received data. The design is suitable for applications where visual feedback is needed in response to serial data input.
+</details>
