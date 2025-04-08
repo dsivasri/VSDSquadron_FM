@@ -464,3 +464,26 @@ This module effectively combines UART communication and RGB LED control, allowin
 ### Circuit Diagram:
 ![Circuit Diagram](https://github.com/user-attachments/assets/dd913cc4-9f8a-464b-a3c8-43f09d3f37ba)
 </details>
+
+<details>
+<summary> <h2> <ins> Step 3 - Implementation: </ins> </h2> </summary>
+</summary>
+<br>
+  
+- Create a folder named "uart_transmitter_2" in the Virtual Machine under "VSDSquadron_FM".
+- Add the files in the "uart_transmitter_2" folder from [here](https://github.com/dsivasri/VSDSquadron_FPGA_Mini/tree/main/Task%20-%203).
+- Open the terminal.
+- Type "cd" to exit from Desktop.
+- Type "cd VSDSquadron_FM" to enter the "VSDSquadron_FM" folder.
+- Type "cd uart_transmitter_2" to enter the "uart_transmitter_2" folder and access the files.
+- Execute the commands:
+   * make clean
+   * make build
+   * sudo make flash
+  - Now we can notice that the RGB LED is glowing in Red colour.
+</details>
+
+<details>
+<summary> <h2> <ins> Step 4 - Testing and Verification: </ins> </h2> </summary>
+</summary>
+<br>
