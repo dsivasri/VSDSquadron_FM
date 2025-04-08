@@ -487,3 +487,19 @@ This module effectively combines UART communication and RGB LED control, allowin
 <summary> <h2> <ins> Step 4 - Testing and Verification: </ins> </h2> </summary>
 </summary>
 <br>
+
+- Install and open PuTTY.
+- PuTTY Configuration dialog box appears.
+- Set as per the below image (Except for Port):
+  
+  ![Implementation 2](https://github.com/user-attachments/assets/1e088eab-cc1c-4ae5-993d-638e013f5aae)
+- Cilck on "Open"
+- Now a hundereds of D's appear on the screen.
+
+### Photo:
+
+![Output](https://github.com/user-attachments/assets/b1c93a7d-7b70-4dd3-90b3-7abb74c2e5d6)
+### Video:
+
+</details>
+</details>
