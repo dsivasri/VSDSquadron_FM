@@ -1,69 +1,74 @@
-`include "uart_trx.v"
+// 8N1 UART Module, transmit only
 
-//----------------------------------------------------------------------------
-//                                                                          --
-//                         Module Declaration                               --
-//                                                                          --
-//----------------------------------------------------------------------------
-module top (
-  // outputs
-  output wire led_red  , // Red
-  output wire led_blue , // Blue
-  output wire led_green , // Green
-  output wire uarttx , // UART Transmission pin
-  input wire uartrx , // UART Transmission pin
-  input wire  hw_clk
-);
+module uart_tx_8n1 (
+    clk,        // input clock
+    txbyte,     // outgoing byte
+    senddata,   // trigger tx
+    txdone,     // outgoing byte sent
+    tx,         // tx wire
+    );
 
-  wire        int_osc            ;
-  reg  [27:0] frequency_counter_i;
-  
-/* 9600 Hz clock generation (from 12 MHz) */
-    reg clk_9600 = 0;
-    reg [31:0] cntr_9600 = 32'b0;
-    parameter period_9600 = 625;
-    
-uart_tx_8n1 DanUART (.clk (clk_9600), .txbyte("D"), .senddata(frequency_counter_i[24]), .tx(uarttx));
-//----------------------------------------------------------------------------
-//                                                                          --
-//                       Internal Oscillator                                --
-//                                                                          --
-//----------------------------------------------------------------------------
-  SB_HFOSC #(.CLKHF_DIV ("0b10")) u_SB_HFOSC ( .CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
+    /* Inputs */
+    input clk;
+    input[7:0] txbyte;
+    input senddata;
 
+    /* Outputs */
+    output txdone;
+    output tx;
 
-//----------------------------------------------------------------------------
-//                                                                          --
-//                       Counter                                            --
-//                                                                          --
-//----------------------------------------------------------------------------
-  always @(posedge int_osc) begin
-    frequency_counter_i <= frequency_counter_i + 1'b1;
-        /* generate 9600 Hz clock */
-        cntr_9600 <= cntr_9600 + 1;
-        if (cntr_9600 == period_9600) begin
-            clk_9600 <= ~clk_9600;
-            cntr_9600 <= 32'b0;
+    /* Parameters */
+    parameter STATE_IDLE=8'd0;
+    parameter STATE_STARTTX=8'd1;
+    parameter STATE_TXING=8'd2;
+    parameter STATE_TXDONE=8'd3;
+
+    /* State variables */
+    reg[7:0] state=8'b0;
+    reg[7:0] buf_tx=8'b0;
+    reg[7:0] bits_sent=8'b0;
+    reg txbit=1'b1;
+    reg txdone=1'b0;
+
+    /* Wiring */
+    assign tx=txbit;
+
+    /* always */
+    always @ (posedge clk) begin
+        // start sending?
+        if (senddata == 1 && state == STATE_IDLE) begin
+            state <= STATE_STARTTX;
+            buf_tx <= txbyte;
+            txdone <= 1'b0;
+        end else if (state == STATE_IDLE) begin
+            // idle at high
+            txbit <= 1'b1;
+            txdone <= 1'b0;
         end
-  end
 
-//----------------------------------------------------------------------------
-//                                                                          --
-//                       Instantiate RGB primitive                          --
-//                                                                          --
-//----------------------------------------------------------------------------
-  SB_RGBA_DRV RGB_DRIVER (
-    .RGBLEDEN(1'b1                                            ),
-    .RGB0PWM (uartrx),
-    .RGB1PWM (uartrx),
-    .RGB2PWM (uartrx),
-    .CURREN  (1'b1                                            ),
-    .RGB0    (led_green                                       ), //Actual Hardware connection
-    .RGB1    (led_blue                                        ),
-    .RGB2    (led_red                                         )
-  );
-  defparam RGB_DRIVER.RGB0_CURRENT = "0b000001";
-  defparam RGB_DRIVER.RGB1_CURRENT = "0b000001";
-  defparam RGB_DRIVER.RGB2_CURRENT = "0b000001";
+        // send start bit (low)
+        if (state == STATE_STARTTX) begin
+            txbit <= 1'b0;
+            state <= STATE_TXING;
+        end
+        // clock data out
+        if (state == STATE_TXING && bits_sent < 8'd8) begin
+            txbit <= buf_tx[0];
+            buf_tx <= buf_tx>>1;
+            bits_sent = bits_sent + 1;
+        end else if (state == STATE_TXING) begin
+            // send stop bit (high)
+            txbit <= 1'b1;
+            bits_sent <= 8'b0;
+            state <= STATE_TXDONE;
+        end
 
-endmodul
+        // tx done
+        if (state == STATE_TXDONE) begin
+            txdone <= 1'b1;
+            state <= STATE_IDLE;
+        end
+
+    end
+
+endmodule
