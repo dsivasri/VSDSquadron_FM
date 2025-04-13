@@ -503,3 +503,30 @@ This module effectively combines UART communication and RGB LED control, allowin
 
 </details>
 </details>
+
+<details>
+<summary> <h1> <ins> Task - 5 Documentation </ins> </h1> </summary>
+<br>
+
+<details>
+<summary> <h2> <ins> Chosen Theme and about it: </ins> </h2> </summary>
+<br>
+
+### Real-Time Sensor Data Acquisition and Transmission System: 
+This theme focuses on developing systems that interface with various sensors to collect data, process it using the FPGA, and transmit the information to external devices through communication protocols like UART.
+</details>
+
+<details>
+<summary> <h2> <ins> Objective: </ins> </h2> </summary>
+<br>
+
+- Conduct comprehensive research on the chosen theme (Real-Time Sensor Data Acquisition and Transmission System).​
+- Formulate a detailed project proposal outlining the system's functionality, required components, and implementation strategy.
+</details>
+  
+<details>
+<summary> <h2> <ins> Step 1 - Literature Review: </ins> </h2> </summary>
+<br>
+
+I referred the repos created by "ojasvi-shah" and "Skandakm29".
+</details>
