@@ -514,5 +514,10 @@ This module effectively combines UART communication and RGB LED control, allowin
 <br>
 
 ### Photo:
+![WhatsApp Image 2025-04-17 at 21 08 20_a0c3e3b6](https://github.com/user-attachments/assets/b308cde8-9515-4832-89cc-4938200c59a8)
 
 ### Video:
+
+
+https://github.com/user-attachments/assets/f5067d76-41f6-4d5d-bede-a7eb186da9e5
+
